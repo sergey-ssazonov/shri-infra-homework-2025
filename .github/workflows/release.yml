@@ -106,16 +106,16 @@ jobs:
           gh issue create \
             --title "🚀 Release v$DOCKER_TAG" \
             --body "$(cat <<EOF
-# 🚀 Release v$DOCKER_TAG
-
-**Date:** $(date '+%Y-%m-%d %H:%M')  
-**Author:** @${{ github.actor }}  
-**Docker Image:** \`cr.yandex/${{ secrets.YC_REGISTRY_ID }}/app:$DOCKER_TAG\`
-
----
-
-## ✨ Changes since previous release:
-
-${{ steps.changelog.outputs.commits }}
-EOF
+            # 🚀 Release v$DOCKER_TAG
+            
+            **Date:** $(date '+%Y-%m-%d %H:%M')  
+            **Author:** @${{ github.actor }}  
+            **Docker Image:** \`cr.yandex/${{ secrets.YC_REGISTRY_ID }}/app:$DOCKER_TAG\`
+            
+            ---
+            
+            ## ✨ Changes since previous release:
+            
+            ${{ steps.changelog.outputs.commits }}
+            EOF
           )"

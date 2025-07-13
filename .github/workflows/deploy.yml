@@ -63,13 +63,13 @@ jobs:
           if [ -n "$ISSUE_NUMBER" ]; then
             gh issue comment "$ISSUE_NUMBER" \
               --body "$(cat <<EOF
-# 🎉 Production Deployed
+              # 🎉 Production Deployed
 
-**Version:** v$VERSION  
-**Deployer:** @${{ github.actor }}  
-**Date:** $(date -u +'%Y-%m-%d %H:%M UTC')  
-**Image:** \`cr.yandex/${{ secrets.YC_REGISTRY_ID }}/app:${VERSION}_latest\`
-EOF
+              **Version:** v$VERSION  
+              **Deployer:** @${{ github.actor }}  
+              **Date:** $(date -u +'%Y-%m-%d %H:%M UTC')  
+              **Image:** \`cr.yandex/${{ secrets.YC_REGISTRY_ID }}/app:${VERSION}_latest\`
+              EOF
             )"
           else
             echo "Issue not found, skipping comment"

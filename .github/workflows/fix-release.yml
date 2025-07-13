@@ -100,17 +100,17 @@ jobs:
           ISSUE_NUMBER=$(gh issue list --search "Release v$BASE" --json number -q '.[0].number')
           if [ -n "$ISSUE_NUMBER" ]; then
             gh issue comment "$ISSUE_NUMBER" --body "$(cat <<EOF
-# 🛠 Fix for Release v$BASE
+            # 🛠 Fix for Release v$BASE
 
-**Date:** $DATE  
-**Author:** @$AUTHOR  
-**Docker Image:** \`$IMAGE\`
+            **Date:** $DATE  
+            **Author:** @$AUTHOR  
+            **Docker Image:** \`$IMAGE\`
 
----
+            ---
 
-## 🔧 Commits since last tag:
-$COMMITS
-EOF
+            ## 🔧 Commits since last tag:
+            $COMMITS
+            EOF
             )"
           else
             echo "⚠️ Issue not found for release v$BASE"
